@@ -49,7 +49,7 @@ export const Hero: React.FC<HeroProps> = ({
         {/* Subtle Editorial Kicker */}
         <div className="flex items-center gap-2 text-xs text-amber-300 font-semibold mb-3">
           <MapPin className="w-4 h-4 text-amber-400" />
-          <span>Official Albania Tour & Travel Advisory</span>
+          <span>Voyage · Official Albania Tour & Travel Advisory</span>
           <span aria-hidden="true">·</span>
           <span>Verified Traveler Guide & Live AI Insights</span>
         </div>

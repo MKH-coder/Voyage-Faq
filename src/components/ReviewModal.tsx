@@ -108,7 +108,7 @@ export const ReviewModal: React.FC<ReviewModalProps> = ({
             <CheckCircle2 className="w-12 h-12 text-emerald-600 animate-bounce" />
             <h4 className="text-lg font-bold text-slate-900">Feedback Saved to Database!</h4>
             <p className="text-sm text-slate-600 max-w-sm">
-              Thank you for contributing to WanderWise. Your field review will help upcoming Albania travelers.
+              Thank you for contributing to Voyage. Your field review will help upcoming Albania travelers.
             </p>
           </div>
         ) : (

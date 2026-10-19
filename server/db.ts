@@ -16,24 +16,27 @@ export interface DatabaseSchema {
   };
 }
 
-// Exactly the 10 questions and answers provided by the user
+// Exactly the 10 questions and tour operator answers provided by the user
 export const ALBANIA_OFFICIAL_FAQS: FAQItem[] = [
   {
-    id: 'albania-faq-currency',
-    question: 'What currency is used in Albania?',
-    summary: 'The Albanian lek (ALL) is the official currency. Cash is widely used, though cards are accepted in city hotels and restaurants.',
-    answer: `### Official Answer:
-**Albanian LEK (ALL)** is the official currency of Albania.
+    id: 'albania-faq-1-currency',
+    orderIndex: 1,
+    question: '1. What currency is used in Albania?',
+    officialDirectAnswer: 'Albanian LEK',
+    summary: 'The Albanian lek (ALL) is the official currency. The Albanian lek is the official currency.',
+    answer: `### Tour Operator Answer:
+**Albanian LEK**
 
-### Travel & Tour Details:
-- **Cash vs. Cards:** While upscale hotels, larger supermarkets, and restaurants in Tirana accept Visa and Mastercard, cash (Lek) is still strongly preferred in traditional restaurants, beach bars, markets, and smaller towns.
-- **Exchanging Money:** Euros (€) are frequently accepted for larger payments (like hotels or souvenirs), but change will almost always be given in Albanian Lek. You can easily exchange Euros, US Dollars, and British Pounds at licensed exchange bureaus (*Zyra Këmbimi*) across Tirana and tourist hubs without high commission fees.
-- **ATMs:** Readily available in Tirana, Sarandë, Vlorë, Berat, and Shkodër. Look for bank ATMs such as Credins Bank, BKT, or Raiffeisen.`,
+### Travel Advice & Field Notes:
+- **Cash Preference:** In traditional restaurants, street bakeries (*byrektore*), beach sunbed rentals, and local markets, cash in Albanian Lek (ALL) is still strongly preferred.
+- **Credit Cards:** Major hotels, car rental agencies, and larger restaurants in Tirana and Sarandë accept Visa and Mastercard.
+- **Currency Exchange:** Euros (€) are widely accepted for larger purchases. Licensed exchange bureaus (*Zyra Këmbimi*) offer fair rates with no commissions.
+- **ATMs:** Credins, BKT, and Raiffeisen ATMs are widely available across major towns.`,
     category: 'currency-budget',
     tags: ['Albanian Lek', 'Currency', 'Cash', 'ATMs', 'Money Exchange'],
-    helpfulCount: 89,
+    helpfulCount: 94,
     unhelpfulCount: 1,
-    viewCount: 1120,
+    viewCount: 1280,
     featured: true,
     source: 'editorial',
     lastVerifiedDate: '2026-10-15',
@@ -41,21 +44,23 @@ export const ALBANIA_OFFICIAL_FAQS: FAQItem[] = [
     updatedAt: '2026-10-15T12:00:00Z',
   },
   {
-    id: 'albania-faq-expenses',
-    question: 'Is Albania expensive to visit?',
-    summary: 'In comparison to other European tourist countries, Albania is more on the affordable side, though cost depends on personal preferences and summer beach spots.',
-    answer: `### Official Answer:
-In comparison to other European tourist countries, **Albania is more on the affordable side**. But total cost depends on your personal preferences and travel style.
+    id: 'albania-faq-2-expenses',
+    orderIndex: 2,
+    question: '2. Is Albania expensive to visit?',
+    officialDirectAnswer: 'In comparison to other European tourist countries, albania is more on the affordable side. But cost totally depends on yourself.',
+    summary: 'In comparison to other European tourist countries, Albania is more on the affordable side, though cost depends on yourself.',
+    answer: `### Tour Operator Answer:
+**In comparison to other European tourist countries, albania is more on the affordable side. But cost totally depends on yourself.**
 
-### What to Expect:
-- **Dining & Groceries:** A generous seafood dinner or traditional meal with local wine in cities like Berat or Shkodër typically costs €10 to €20 per person—far cheaper than Italy or Greece.
-- **Summer Coastal Variations:** Popular southern Riviera hotspots such as Ksamil, Dhërmi, and Sarandë see elevated prices during peak summer months (July and August) for beach clubs, sunbed rentals, and waterfront dining.
-- **Tour Value:** Since your trip includes dedicated accommodations and organized logistics, everyday personal expenses remain comfortably low.`,
+### Travel Advice & Field Notes:
+- **Outstanding Value:** Dining out, coffee, museum admissions, and local fresh produce are significantly cheaper than in neighboring Greece, Italy, or Croatia.
+- **Peak Summer Peaks:** Southern Riviera hotspots (Ksamil, Dhërmi, Sarandë) experience higher rates in July and August, especially for luxury beach clubs.
+- **All-Inclusive Peace of Mind:** Your tour package covers your designated transport, accommodations, and guided excursions, keeping your discretionary spending very affordable.`,
     category: 'currency-budget',
-    tags: ['Trip Budget', 'Food & Dining', 'Riviera Prices', 'Affordable Europe'],
-    helpfulCount: 76,
+    tags: ['Affordable Europe', 'Trip Budget', 'Food Costs', 'Riviera Prices'],
+    helpfulCount: 88,
     unhelpfulCount: 2,
-    viewCount: 980,
+    viewCount: 1090,
     featured: true,
     source: 'editorial',
     lastVerifiedDate: '2026-10-12',
@@ -63,21 +68,23 @@ In comparison to other European tourist countries, **Albania is more on the affo
     updatedAt: '2026-10-12T11:00:00Z',
   },
   {
-    id: 'albania-faq-public-transit',
-    question: 'Is public transportation reliable?',
-    summary: 'Affordable but not very reliable. Cities like Tirana have proper transport, but rural areas like Gjirokastër have limited schedules.',
-    answer: `### Official Answer:
-**Affordable, but not so much reliable.** Tirana and other major city areas of Albania have proper transport facilities, but in other rural and historic areas like Gjirokastër and mountain valleys, transport exists only in select sections of the places.
+    id: 'albania-faq-3-public-transit',
+    orderIndex: 3,
+    question: '3. Is public transportation reliable?',
+    officialDirectAnswer: 'Affordable but not so much reliable, tirana and other city areas of albania has proper transport facilities but other rural areas like gjrokaster and all, transport exists but only in some sections of the places.',
+    summary: 'Affordable but not very reliable. City hubs have transit, but rural areas like Gjirokastër have limited schedules.',
+    answer: `### Tour Operator Answer:
+**Affordable but not so much reliable, tirana and other city areas of albania has proper transport facilities but other rural areas like gjrokaster and all, transport exists but only in some sections of the places.**
 
-### Important Transport Context:
-- **The "Furgon" System:** Regional transit frequently relies on private minibuses called *furgons*. They often depart only once they are completely full, rather than adhering to rigid digital timetables.
-- **Language & Terminal Locations:** Bus stations in Albanian cities are often decentralized (e.g. separate terminals for North, South, and International departures in Tirana).
-- **Tour Advantage:** You do not need to worry about bus delays or station transfers, as private tour transport is fully arranged for your itinerary.`,
+### Travel Advice & Field Notes:
+- **Minibuses (*Furgons*):** Rural and regional buses rarely adhere to published online schedules; they typically depart only when full.
+- **Multiple Terminals:** Tirana has separate bus terminals for Northern, Southern, and International routes located outside the immediate city center.
+- **Your Included Tour Transit:** You won't face any transit headaches because private, air-conditioned tour transport with a professional driver is arranged for your entire journey.`,
     category: 'transit-transport',
-    tags: ['Public Buses', 'Furgon', 'Tirana Transit', 'Gjirokastër', 'Timetables'],
-    helpfulCount: 64,
+    tags: ['Public Transit', 'Furgons', 'Tirana Buses', 'Gjirokastër', 'Schedules'],
+    helpfulCount: 79,
     unhelpfulCount: 1,
-    viewCount: 840,
+    viewCount: 940,
     featured: false,
     source: 'editorial',
     lastVerifiedDate: '2026-09-28',
@@ -85,21 +92,23 @@ In comparison to other European tourist countries, **Albania is more on the affo
     updatedAt: '2026-09-28T14:30:00Z',
   },
   {
-    id: 'albania-faq-car-rental',
-    question: 'Should I rent a car in Albania?',
-    summary: 'Renting a car will not be required as we provide private transport and a dedicated driver throughout your entire trip.',
-    answer: `### Official Answer:
-**Renting a car won't be required as we will be providing transport and a dedicated driver throughout your trip!** Hence, you will not need to use public transport or drive yourself, as we provide full facilities to travel anywhere on your itinerary.
+    id: 'albania-faq-4-car-rental',
+    orderIndex: 4,
+    question: '4. Should I rent a car in Albania?',
+    officialDirectAnswer: "Renting a car won't be required as we will be providing a transport and a driver throughout your trip. Hence, you won't also need to use public transport as we will be providing the facility to travel anywhere.",
+    summary: "Renting a car won't be required as we provide dedicated transport and a driver throughout your entire trip.",
+    answer: `### Tour Operator Answer:
+**Renting a car won't be required as we will be providing a transport and a driver throughout your trip. Hence, you won't also need to use public transport as we will be providing the facility to travel anywhere.**
 
-### Key Benefits of Your Dedicated Tour Transport:
-- **Zero Driving Stress:** Avoid navigating unfamiliar mountain switchbacks, winding coastal highways (like Llogara Pass), or city parking.
-- **Door-to-Door Convenience:** Relax in an air-conditioned vehicle with direct hotel pickup, baggage handling, and drop-offs at all monuments, scenic overlooks, and beaches.
-- **Local Driver Insights:** Your driver knows the best viewpoint stops, scenic photo detours, and authentic roadside bakeries along the route.`,
+### Why Your Included Tour Driver Is Ideal:
+- **Stress-Free Mountain & Coastal Drives:** Enjoy panoramic views over the winding Llogara Pass and mountain ridges without the anxiety of navigating narrow historic streets or local driving habits.
+- **Door-to-Door Service:** Direct pickup at hotels and drop-off right at historical sites, castles, and scenic viewpoints with baggage assistance.
+- **Local Knowledge:** Your driver knows scenic viewpoints, authentic roadside bakeries, and the best local photo stops.`,
     category: 'transit-transport',
-    tags: ['Car Rental', 'Private Driver', 'Tour Transport', 'Llogara Pass', 'Road Safety'],
-    helpfulCount: 110,
+    tags: ['Private Driver', 'Included Transport', 'Car Rental', 'Llogara Pass', 'Road Travel'],
+    helpfulCount: 132,
     unhelpfulCount: 0,
-    viewCount: 1450,
+    viewCount: 1610,
     featured: true,
     source: 'editorial',
     lastVerifiedDate: '2026-10-18',
@@ -107,21 +116,23 @@ In comparison to other European tourist countries, **Albania is more on the affo
     updatedAt: '2026-10-18T09:20:00Z',
   },
   {
-    id: 'albania-faq-cultural-customs',
-    question: 'What cultural customs should tourists know?',
-    summary: 'Everyone is exceptionally hospitable. While no rigid customs are mandatory, greeting politely and asking before photographing people is respectful.',
-    answer: `### Official Answer:
-**It's not necessary that you strictly NEED to know complicated cultural customs—everyone is very hospitable there!** 
+    id: 'albania-faq-5-cultural-customs',
+    orderIndex: 5,
+    question: '5. What cultural customs should tourists know?',
+    officialDirectAnswer: "It's not necessary that you NEED to know the cultural customs, everyone is very hospitable there.",
+    summary: "It's not necessary that you need to know complicated cultural customs—everyone is very hospitable.",
+    answer: `### Tour Operator Answer:
+**It's not necessary that you NEED to know the cultural customs, everyone is very hospitable there.**
 
-### Cultural Etiquette Highlights:
-- **Legendary Hospitality (*Besa*):** Albanians take deep cultural pride in welcoming guests. You will often experience genuine warmth, complimentary raki, or friendly locals asking where you are from.
-- **Respectful Photography:** Always smile and ask for permission before taking close-up portraits of elderly locals, artisans, or village residents.
-- **Body Language Note:** In traditional Albanian culture, nodding up and down can sometimes mean "no" and shaking the head side-to-side can mean "yes", although younger generations in tourist areas use standard international gestures.`,
+### Hospitality & Etiquette:
+- **The Code of *Besa*:** Hospitality is woven into the soul of Albania. Foreign travelers are treated with immense warmth and respect.
+- **Polite Courtesies:** A friendly greeting and asking permission before taking portraits of locals or elders is always appreciated.
+- **Tipping:** While not mandatory, leaving a 10% tip or rounding up the bill in restaurants and cafes is warmly welcomed.`,
     category: 'customs-etiquette',
-    tags: ['Albanian Culture', 'Hospitality', 'Besa', 'Etiquette', 'Photography'],
-    helpfulCount: 95,
+    tags: ['Hospitality', 'Besa', 'Culture', 'Etiquette', 'Locals'],
+    helpfulCount: 104,
     unhelpfulCount: 1,
-    viewCount: 1290,
+    viewCount: 1340,
     featured: false,
     source: 'editorial',
     lastVerifiedDate: '2026-10-01',
@@ -129,21 +140,23 @@ In comparison to other European tourist countries, **Albania is more on the affo
     updatedAt: '2026-10-01T16:00:00Z',
   },
   {
-    id: 'albania-faq-churches-mosques',
-    question: 'What should I wear when visiting churches and mosques?',
-    summary: 'No strict dress code exists—casual clothing is fine, but modest attire covering shoulders and knees is respectful in places of worship.',
-    answer: `### Official Answer:
-**There's no specific or oppressive dress code—just wear casual clothing.** There is no strict dress code for entering places of worship in Albania.
+    id: 'albania-faq-6-churches-mosques',
+    orderIndex: 6,
+    question: '6. What should I wear when visiting churches and mosques?',
+    officialDirectAnswer: "There's no specific dress code for such, just wear casual clothing, there is no strict dress code for entering the places of worship.",
+    summary: 'There is no strict dress code—just wear casual clothing. Modest attire covering shoulders and knees is courteous.',
+    answer: `### Tour Operator Answer:
+**There's no specific dress code for such, just wear casual clothing, there is no strict dress code for entering the places of worship.**
 
-### Practical Guidelines for Visits:
-- **Modesty as Courtesy:** While relaxed, it is polite and appreciated to cover bare shoulders and knees when stepping inside historic mosques (such as the 18th-century Et'hem Bey Mosque in Skanderbeg Square) or centuries-old Orthodox and Catholic churches.
-- **Mosque Etiquette:** Remove shoes before stepping onto the carpeted prayer floor. Women may be offered a light headscarf at the entrance of active mosques, though Albania is famously secular and tolerant.
-- **Photos Inside:** Non-flash photography is generally permitted when services or prayers are not actively taking place.`,
+### Etiquette for Historic Sites:
+- **Religious Harmony:** Albania is famous for religious tolerance, where Catholic, Orthodox, and Muslim communities live side-by-side in harmony.
+- **Courteous Modesty:** Wearing everyday casual attire that covers bare shoulders and knees is respectful when entering historic mosques or orthodox monasteries.
+- **Shoes:** Remove footwear before walking on carpeted mosque prayer floors.`,
     category: 'customs-etiquette',
-    tags: ['Churches', 'Mosques', 'Dress Code', 'Religious Heritage', 'Modesty'],
-    helpfulCount: 82,
+    tags: ['Churches', 'Mosques', 'Casual Dress Code', 'Modesty', 'Places of Worship'],
+    helpfulCount: 91,
     unhelpfulCount: 2,
-    viewCount: 1040,
+    viewCount: 1120,
     featured: false,
     source: 'editorial',
     lastVerifiedDate: '2026-09-20',
@@ -151,21 +164,23 @@ In comparison to other European tourist countries, **Albania is more on the affo
     updatedAt: '2026-09-20T13:10:00Z',
   },
   {
-    id: 'albania-faq-sim-card',
-    question: 'Do I need a SIM card or eSIM?',
-    summary: 'An eSIM is recommended if your phone supports it. Otherwise, get an Albanian SIM at the airport; international roaming is significantly costlier.',
-    answer: `### Official Answer:
-**We would recommend an eSIM if your phone has the capabilities to do so, else an Albanian SIM can be taken directly from the airport.** You can use international roaming on your own home SIM, but it is going to cost significantly more.
+    id: 'albania-faq-7-sim-card',
+    orderIndex: 7,
+    question: '7. Do I need a SIM card or eSIM?',
+    officialDirectAnswer: "We would recommend an eSIM if you're phone has a capabilities to do so, else and albanian SIM can be taken from the airport. You can use international roaming on you're own SIM but it's gonna cost more.",
+    summary: "An eSIM is recommended if your phone supports it, or get an Albanian SIM at the airport; roaming costs more.",
+    answer: `### Tour Operator Answer:
+**We would recommend an eSIM if you're phone has a capabilities to do so, else and albanian SIM can be taken from the airport. You can use international roaming on you're own SIM but it's gonna cost more.**
 
-### Options Ranked for Connectivity:
-1. **eSIM (Most Convenient):** Purchase an electronic eSIM online prior to departure (via providers like Airalo, Maya Mobile, or Holafly). Activates instantly the moment you land at Tirana Airport.
-2. **Local Airport SIM (Best Local Value):** Both major carriers (**Vodafone Albania** and **ONE Telecommunications**) have dedicated kiosks directly inside Tirana International Airport (TIA) arrivals hall. Tourist packages offer huge data bundles (30GB to 100GB for ~€15 to €25) valid for 15–30 days.
-3. **Home Carrier Roaming:** Good as an emergency fallback, but daily international passes usually cost $10–$15 per day, which adds up quickly over a full vacation.`,
+### Connectivity Recommendations:
+- **eSIM (Top Choice):** Providers like Airalo, Maya Mobile, or Holafly activate immediately upon landing at Tirana International Airport.
+- **Airport Kiosks:** Vodafone Albania and ONE have booths directly in Tirana Airport arrivals offering tourist packages (e.g. 30GB to 100GB for €15–€25).
+- **International Roaming:** Works smoothly with major carriers, but daily passes ($10–$15/day) are considerably more expensive.`,
     category: 'connectivity-tech',
-    tags: ['eSIM', 'Local SIM Card', 'Vodafone', 'Tirana Airport', 'Mobile Data'],
-    helpfulCount: 134,
+    tags: ['eSIM', 'Local SIM Card', 'Vodafone Albania', 'Tirana Airport', 'Mobile Data'],
+    helpfulCount: 148,
     unhelpfulCount: 1,
-    viewCount: 1820,
+    viewCount: 1980,
     featured: true,
     source: 'editorial',
     lastVerifiedDate: '2026-10-10',
@@ -173,21 +188,23 @@ In comparison to other European tourist countries, **Albania is more on the affo
     updatedAt: '2026-10-10T08:45:00Z',
   },
   {
-    id: 'albania-faq-wifi-availability',
-    question: 'Is Wi-Fi widely available?',
-    summary: 'Wi-Fi is available in your hotels, cafes, and restaurants throughout Albania, so staying connected is seamless for the major part of the trip.',
-    answer: `### Official Answer:
-**Wi-Fi is readily available in the hotels you are staying in and cafes and restaurants we are visiting in Albania.** Internet connections will not be a problem for the major part of the trip.
+    id: 'albania-faq-8-wifi-availability',
+    orderIndex: 8,
+    question: '8. Is Wi-Fi widely available?',
+    officialDirectAnswer: 'Wi-Fi is available in the hotels you are staying in and cafes and restaurants we are visiting in Albania, so internet connections will be not be a problem for the major part of the trip.',
+    summary: 'Wi-Fi is available in your hotels, cafes, and restaurants, so connectivity is not a problem for the major trip.',
+    answer: `### Tour Operator Answer:
+**Wi-Fi is available in the hotels you are staying in and cafes and restaurants we are visiting in Albania, so internet connections will be not be a problem for the major part of the trip.**
 
-### What to Expect:
-- **Cafe Culture:** Albania has one of the highest per-capita concentrations of espresso bars and cafes in Europe. Almost every single coffee shop, bistro, and seaside tavern offers complimentary, fast guest Wi-Fi.
-- **Hotels:** All our selected partner hotels provide complimentary high-speed Wi-Fi in guest rooms and common lounge areas.
-- **Remote / Mountain Detours:** If you are hiking deep into the Accursed Mountains (Theth / Valbona) or secluded canyon trails, signals may drop temporarily. Cellular data (eSIM / local SIM) is a great supplement.`,
+### Connectivity Expectations:
+- **Cafe Culture:** Albania boasts a rich espresso culture; almost every cafe, bistro, and seaside lounge offers free, fast Wi-Fi to guests.
+- **Tour Hotels:** High-speed wireless internet is standard across all partner accommodations.
+- **Mountain Detours:** When exploring deep valleys or mountain hiking paths, cellular data acts as your dependable backup.`,
     category: 'connectivity-tech',
-    tags: ['Wi-Fi', 'Hotels', 'Cafes & Restaurants', 'Internet Speed', 'Remote Coverage'],
-    helpfulCount: 71,
+    tags: ['Wi-Fi', 'Hotels', 'Cafes', 'Internet Connection', 'Restaurants'],
+    helpfulCount: 82,
     unhelpfulCount: 1,
-    viewCount: 890,
+    viewCount: 970,
     featured: false,
     source: 'editorial',
     lastVerifiedDate: '2026-09-18',
@@ -195,23 +212,23 @@ In comparison to other European tourist countries, **Albania is more on the affo
     updatedAt: '2026-09-18T10:00:00Z',
   },
   {
-    id: 'albania-faq-electrical-plug',
-    question: 'What type of electrical plug does Albania use?',
-    summary: 'Albania uses Type C and Type F standard European plugs with 230V electricity at 50Hz. A universal European travel adapter is advisable.',
-    answer: `### Official Answer:
-**Type C and Type F plugs are used with 230V at 50Hz.** So a travel adaptor is advisable.
+    id: 'albania-faq-9-electrical-plug',
+    orderIndex: 9,
+    question: '9. What type of electrical plug does Albania use?',
+    officialDirectAnswer: 'Type C and type F plugs are used with 230V at 50Hz. So a travel adaptor is advisable.',
+    summary: 'Type C and Type F standard European plugs with 230V at 50Hz. A travel adapter is advisable.',
+    answer: `### Tour Operator Answer:
+**Type C and type F plugs are used with 230V at 50Hz. So a travel adaptor is advisable.**
 
-### Technical Breakdown:
-- **Plug Types:**
-  - **Type C:** The standard Europlug with two round parallel prongs.
-  - **Type F:** Known as the "Schuko" plug, with two round pins and side grounding clips.
-- **Voltage & Frequency:** Standard European 230V at 50Hz. Dual-voltage devices (laptops, modern smartphones, cameras marked 100-240V, 50/60Hz) only need a pin adapter.
-- **High-Power Devices:** Hairdryers or curling irons from 110V countries (like the USA or Canada) must be checked for dual-voltage ratings to prevent overheating. Most tour hotels provide hairdryers in room.`,
+### Technical Specs:
+- **Plug Formats:** Type C (Europlug two round pins) and Type F (Schuko with side earthing clips).
+- **Voltage:** 230V / 50Hz. Modern laptops, phones, and camera chargers are dual-voltage (100–240V) and only need a plug adapter.
+- **Appliances:** North American 110V appliances (hair curlers, flatirons) require dual-voltage capability. Tour hotels provide hairdryers.`,
     category: 'connectivity-tech',
     tags: ['Plug Type C', 'Plug Type F', 'Voltage 230V', 'Travel Adapter', 'Electronics'],
-    helpfulCount: 92,
+    helpfulCount: 102,
     unhelpfulCount: 0,
-    viewCount: 1190,
+    viewCount: 1250,
     featured: false,
     source: 'editorial',
     lastVerifiedDate: '2026-10-05',
@@ -219,27 +236,27 @@ In comparison to other European tourist countries, **Albania is more on the affo
     updatedAt: '2026-10-05T15:20:00Z',
   },
   {
-    id: 'albania-faq-emergency-numbers',
-    question: 'What emergency number should tourists know?',
-    summary: 'Dial 112 for general emergencies, Police 129, Ambulance 127, Fire 128. Inform our 24/7 dedicated travel concierge for immediate assistance.',
-    answer: `### Official Answer:
-### Official Emergency Contacts in Albania:
-- **General Emergencies (All-in-One):** 112
-- **Police:** 129
-- **Ambulance / Hospital:** 127
-- **Fire Service:** 128
+    id: 'albania-faq-10-emergency-numbers',
+    orderIndex: 10,
+    question: '10. What emergency number should tourists know?',
+    officialDirectAnswer: 'General emergencies: 112 | Police: 129 | Fire service: 128 | Hospital/ambulance: 127. But if there is any sort of emergency please do inform the travel agent and us and we will do the needful and help out maximum with the emergency.',
+    summary: 'General emergencies: 112, Police: 129, Fire: 128, Ambulance: 127. Inform the travel agent and us for maximum help.',
+    answer: `### Tour Operator Answer:
+**General emergencies: 112**
+**Police: 129**
+**Fire service: 128**
+**Hospital/ambulance: 127**
 
-### Crucial Tour & Concierge Protocol:
-**If there is any sort of emergency, delay, or urgent situation, please DO inform your travel agent and us immediately!** We will do the needful, coordinate with local health or consular authorities, and provide maximum personalized help and support.
+**But if there is any sort of emergency please do inform the travel agent and us and we will do the needful and help out maximum with the emergency.**
 
-### Traveler Peace of Mind:
-- Your designated driver and tour director are equipped with direct regional emergency contacts.
-- Keep a digital and paper copy of your travel insurance card and passport in your daypack.`,
+### 24/7 Concierge Support:
+- Your assigned tour director and private driver are reachable 24/7 on WhatsApp and phone.
+- We coordinate directly with local medical facilities, authorities, and embassies on your behalf.`,
     category: 'safety-emergency',
-    tags: ['Emergency 112', 'Police 129', 'Ambulance 127', 'Fire 128', 'Tour Concierge Support'],
-    helpfulCount: 128,
+    tags: ['Emergency 112', 'Police 129', 'Ambulance 127', 'Fire 128', '24/7 Concierge'],
+    helpfulCount: 142,
     unhelpfulCount: 1,
-    viewCount: 1670,
+    viewCount: 1790,
     featured: true,
     source: 'editorial',
     lastVerifiedDate: '2026-10-18',
@@ -251,7 +268,7 @@ In comparison to other European tourist countries, **Albania is more on the affo
 const INITIAL_REVIEWS: FAQReview[] = [
   {
     id: 'rev-alb-01',
-    faqId: 'albania-faq-car-rental',
+    faqId: 'albania-faq-4-car-rental',
     userName: 'Sophie & Liam Clarke',
     userLocation: 'Edinburgh, UK',
     rating: 5,
@@ -263,7 +280,7 @@ const INITIAL_REVIEWS: FAQReview[] = [
   },
   {
     id: 'rev-alb-02',
-    faqId: 'albania-faq-sim-card',
+    faqId: 'albania-faq-7-sim-card',
     userName: 'Matteo Bellini',
     userLocation: 'Milan, Italy',
     rating: 5,
@@ -275,7 +292,7 @@ const INITIAL_REVIEWS: FAQReview[] = [
   },
   {
     id: 'rev-alb-03',
-    faqId: 'albania-faq-currency',
+    faqId: 'albania-faq-1-currency',
     userName: 'Claire Dupont',
     userLocation: 'Lyon, France',
     rating: 5,
@@ -287,7 +304,7 @@ const INITIAL_REVIEWS: FAQReview[] = [
   },
   {
     id: 'rev-alb-04',
-    faqId: 'albania-faq-emergency-numbers',
+    faqId: 'albania-faq-10-emergency-numbers',
     userName: 'Anja Schneider',
     userLocation: 'Frankfurt, Germany',
     rating: 5,
@@ -299,7 +316,7 @@ const INITIAL_REVIEWS: FAQReview[] = [
   },
   {
     id: 'rev-alb-05',
-    faqId: 'albania-faq-churches-mosques',
+    faqId: 'albania-faq-6-churches-mosques',
     userName: 'Tariq Al-Mansoor',
     userLocation: 'London, UK',
     rating: 5,
@@ -363,8 +380,7 @@ class DatabaseManager {
       if (fs.existsSync(DB_FILE)) {
         const raw = fs.readFileSync(DB_FILE, 'utf-8');
         const parsed = JSON.parse(raw);
-        // Ensure our 10 official FAQs are present
-        if (parsed && Array.isArray(parsed.faqs) && parsed.faqs.some((f: FAQItem) => f.id.startsWith('albania-faq-'))) {
+        if (parsed && Array.isArray(parsed.faqs) && parsed.faqs.some((f: FAQItem) => f.id === 'albania-faq-1-currency')) {
           return parsed;
         }
       }
@@ -407,6 +423,7 @@ class DatabaseManager {
         f.question.toLowerCase().includes(q) ||
         f.summary.toLowerCase().includes(q) ||
         f.answer.toLowerCase().includes(q) ||
+        (f.officialDirectAnswer && f.officialDirectAnswer.toLowerCase().includes(q)) ||
         f.tags.some(t => t.toLowerCase().includes(q))
       );
     }
@@ -416,9 +433,13 @@ class DatabaseManager {
     } else if (options?.sort === 'newest') {
       result.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     } else {
-      // default helpful
+      // Default: preserve official 1 to 10 in strict orderIndex sequence, then newest/helpful
       result.sort((a, b) => {
-        if (a.featured !== b.featured) return a.featured ? -1 : 1;
+        if (a.orderIndex !== undefined && b.orderIndex !== undefined) {
+          return a.orderIndex - b.orderIndex;
+        }
+        if (a.orderIndex !== undefined) return -1;
+        if (b.orderIndex !== undefined) return 1;
         return b.helpfulCount - a.helpfulCount;
       });
     }
@@ -522,7 +543,13 @@ class DatabaseManager {
       updatedAt: new Date().toISOString()
     };
 
-    this.data.faqs.unshift(newFaq);
+    // Place auto-generated FAQs right after the official 10
+    const nonOfficialIndex = this.data.faqs.findIndex(f => f.orderIndex === undefined);
+    if (nonOfficialIndex !== -1) {
+      this.data.faqs.splice(nonOfficialIndex, 0, newFaq);
+    } else {
+      this.data.faqs.push(newFaq);
+    }
 
     const matched = this.data.queries.find(q => 
       q.query.toLowerCase().includes(faqData.question.toLowerCase().slice(0, 15)) ||

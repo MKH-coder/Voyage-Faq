@@ -173,11 +173,23 @@ export const FAQCard: React.FC<FAQCardProps> = ({
           </button>
         </div>
 
-        {/* 1-Sentence Summary preview if collapsed */}
-        {!isExpanded && (
-          <p className="text-slate-600 text-sm mt-2 line-clamp-2 leading-relaxed">
-            {faq.summary}
-          </p>
+        {/* Official Tour Answer Highlight Box */}
+        {faq.officialDirectAnswer ? (
+          <div className="mt-3 p-3.5 rounded-xl bg-amber-50/90 border border-amber-200/90 text-amber-950">
+            <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-800 mb-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-600 inline-block" />
+              <span>Voyage Tour Answer:</span>
+            </div>
+            <div className="text-sm font-semibold text-slate-900 leading-relaxed whitespace-pre-line">
+              {faq.officialDirectAnswer}
+            </div>
+          </div>
+        ) : (
+          !isExpanded && (
+            <p className="text-slate-600 text-sm mt-2 line-clamp-2 leading-relaxed">
+              {faq.summary}
+            </p>
+          )
         )}
       </div>
 

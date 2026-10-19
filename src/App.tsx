@@ -86,10 +86,21 @@ export default function App() {
       const matchQuestion = faq.question.toLowerCase().includes(q);
       const matchSummary = faq.summary.toLowerCase().includes(q);
       const matchAnswer = faq.answer.toLowerCase().includes(q);
+      const matchDirect = faq.officialDirectAnswer && faq.officialDirectAnswer.toLowerCase().includes(q);
       const matchTags = faq.tags.some(t => t.toLowerCase().includes(q));
-      return matchQuestion || matchSummary || matchAnswer || matchTags;
+      return matchQuestion || matchSummary || matchAnswer || matchDirect || matchTags;
     }
     return true;
+  });
+
+  // Keep official 1 to 10 in strict sequence, then AI auto-added FAQs
+  filteredFaqs.sort((a, b) => {
+    if (a.orderIndex !== undefined && b.orderIndex !== undefined) {
+      return a.orderIndex - b.orderIndex;
+    }
+    if (a.orderIndex !== undefined) return -1;
+    if (b.orderIndex !== undefined) return 1;
+    return b.helpfulCount - a.helpfulCount;
   });
 
   // Calculate counts per category
@@ -256,6 +267,56 @@ export default function App() {
               onSelectCategory={(cat) => setSelectedCategory(cat)}
               categoryCounts={categoryCounts}
             />
+
+            {/* Quick 1-10 Jump & Briefing Bar on Front Page */}
+            {!searchQuery && selectedCategory === 'all' && (
+              <div className="bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-slate-100 p-5 sm:p-6 rounded-2xl border border-amber-200/80 shadow-xs">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                  <div>
+                    <h3 className="text-sm sm:text-base font-extrabold text-slate-900 flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-amber-600 inline-block" />
+                      <span>Voyage Albania Official Q&A Briefing (Questions 1 to 10)</span>
+                    </h3>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      The 10 essential questions and tour operator answers prepared directly for your departure.
+                    </p>
+                  </div>
+                  <span className="text-[11px] font-bold text-amber-800 bg-amber-100/90 border border-amber-200 px-3 py-1 rounded-lg shrink-0 self-start sm:self-auto">
+                    Verified Q&A 1–10
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 text-xs">
+                  {faqs
+                    .filter((f) => f.orderIndex !== undefined)
+                    .sort((a, b) => (a.orderIndex || 0) - (b.orderIndex || 0))
+                    .map((item) => (
+                      <button
+                        key={item.id}
+                        onClick={() => {
+                          const elem = document.getElementById(item.id);
+                          if (elem) elem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }}
+                        className="p-3 bg-white hover:bg-amber-50/80 rounded-xl border border-slate-200/90 text-left transition-all hover:border-amber-400 shadow-2xs group cursor-pointer flex flex-col justify-between"
+                      >
+                        <div>
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="font-extrabold text-amber-700 text-xs">
+                              Question {item.orderIndex}
+                            </span>
+                          </div>
+                          <div className="font-bold text-slate-900 text-xs line-clamp-2 leading-snug">
+                            {item.question.replace(/^\d+\.\s*/, '')}
+                          </div>
+                        </div>
+                        <div className="text-[11px] text-slate-600 line-clamp-2 mt-2 pt-1.5 border-t border-slate-100 font-medium">
+                          {item.officialDirectAnswer}
+                        </div>
+                      </button>
+                    ))}
+                </div>
+              </div>
+            )}
 
             {/* Active Search Badge/Clearer if searching */}
             {searchQuery && (
@@ -532,8 +593,10 @@ export default function App() {
       <footer className="mt-auto bg-white border-t border-slate-200 py-8 text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <Compass className="w-4 h-4 text-amber-600" />
-            <span className="font-bold text-slate-900">WanderWise Albania</span>
+            <div className="h-5 px-1.5 rounded bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center font-black text-[10px] tracking-wider shadow-2xs">
+              FAQ
+            </div>
+            <span className="font-bold text-slate-900">Voyage Albania</span>
             <span>· Official Travel FAQ & Live Insights Engine</span>
           </div>
 

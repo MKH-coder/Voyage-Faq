@@ -10,7 +10,9 @@ export type FAQCategory =
 
 export interface FAQItem {
   id: string;
+  orderIndex?: number;
   question: string;
+  officialDirectAnswer?: string;
   answer: string;
   summary: string;
   category: FAQCategory;

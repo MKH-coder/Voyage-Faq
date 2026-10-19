@@ -165,7 +165,7 @@ app.post('/api/queries/ask', async (req: Request, res: Response) => {
     let tags: string[] = ['Travel Advice', 'AI Insights'];
 
     try {
-      const prompt = `You are the lead travel advisory intelligence officer for WanderWise, a global travel platform.
+      const prompt = `You are the lead travel advisory intelligence officer for Voyage, an elite global travel and tour company.
 A traveler asked: "${trimmedQuery}".
 
 Provide a comprehensive, authoritative, structured response in markdown. Include:
@@ -283,7 +283,7 @@ app.post('/api/insights/cluster-generate', async (req: Request, res: Response) =
     const existingFaqs = db.getFAQs();
     const queryTexts = queries.map(q => `"${q.query}" (Asked ${q.askedCount}x)`).join('\n');
 
-    const prompt = `You are the chief AI Insights Engine for WanderWise Travel.
+    const prompt = `You are the chief AI Insights Engine for Voyage Travel.
 Below is the log of real traveler search queries that users recently asked:
 ${queryTexts}
 
@@ -398,7 +398,7 @@ async function startServer() {
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`WanderWise Travel FAQ server active at http://0.0.0.0:${PORT}`);
+    console.log(`Voyage Travel FAQ server active at http://0.0.0.0:${PORT}`);
   });
 }
 

@@ -12,16 +12,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenA
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-8">
         
-        {/* Zone 1: Single wordmark brand element */}
+        {/* Zone 1: Single wordmark brand element with FAQ logo */}
         <div 
           onClick={() => setActiveTab('faqs')}
-          className="flex items-center gap-2 cursor-pointer whitespace-nowrap shrink-0 group"
+          className="flex items-center gap-2.5 cursor-pointer whitespace-nowrap shrink-0 group"
         >
-          <div className="w-9 h-9 rounded-lg bg-amber-600 text-white flex items-center justify-center font-bold shadow-sm transition-transform group-hover:scale-105">
-            <Compass className="w-5 h-5 text-amber-100" />
+          {/* FAQ Logo Badge */}
+          <div className="h-9 px-2.5 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center shadow-sm transition-transform group-hover:scale-105 border border-amber-600/40">
+            <span className="font-black text-xs tracking-widest text-white">FAQ</span>
           </div>
-          <span className="text-xl font-bold tracking-tight text-slate-900">
-            WanderWise
+          <span className="text-xl font-extrabold tracking-tight text-slate-900">
+            Voyage
           </span>
         </div>
 
