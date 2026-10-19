@@ -1,0 +1,6 @@
+{
+  "name": "WanderWise Travel FAQ & Insights",
+  "description": "Comprehensive travel knowledge hub with verified traveler FAQs, feedback and review system, and an AI-powered insights engine that auto-detects emerging travel queries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
