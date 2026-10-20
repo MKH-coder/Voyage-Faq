@@ -9,7 +9,16 @@ import {
   Star, 
   Calendar, 
   Eye, 
-  Tag
+  Tag,
+  DollarSign,
+  Car,
+  Smile,
+  Smartphone,
+  AlertTriangle,
+  FileText,
+  Briefcase,
+  HeartPulse,
+  MapPin
 } from 'lucide-react';
 import { FAQItem, FAQReview } from '../types.js';
 
@@ -106,12 +115,31 @@ export const FAQCard: React.FC<FAQCardProps> = ({
     return formatted;
   };
 
+  const getCategoryIcon = (cat: string) => {
+    switch (cat) {
+      case 'currency-budget': return DollarSign;
+      case 'transit-transport': return Car;
+      case 'customs-etiquette': return Smile;
+      case 'connectivity-tech': return Smartphone;
+      case 'safety-emergency': return AlertTriangle;
+      case 'visa-passports': return FileText;
+      case 'baggage-packing': return Briefcase;
+      case 'health-insurance': return HeartPulse;
+      default: return MapPin;
+    }
+  };
+
+  const CategoryIcon = getCategoryIcon(faq.category);
+
   const averageRating = reviews.length > 0 
     ? (reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length).toFixed(1)
     : null;
 
   return (
-    <article className="bg-white rounded-xl border border-slate-200/90 shadow-sm transition-all hover:border-slate-300 overflow-hidden">
+    <article className="relative bg-white rounded-xl border border-slate-200/90 shadow-sm transition-all hover:border-slate-300 overflow-hidden">
+      <div className="absolute -top-4 -right-4 opacity-[0.04] pointer-events-none">
+        <CategoryIcon className="w-32 h-32 text-slate-950" />
+      </div>
       
       {/* Clickable Card Header */}
       <div 

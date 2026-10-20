@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { Search, Sparkles, ShieldCheck, HelpCircle, MapPin } from 'lucide-react';
 import heroImg from '../assets/images/albania_riviera_ksamil_1792430595700.jpg';
 
@@ -32,10 +33,18 @@ export const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <section className="relative overflow-hidden bg-slate-900 text-white">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className="relative overflow-hidden bg-slate-900 text-white"
+    >
       {/* Background Image of Albanian Riviera Ksamil with High-Contrast Scrim */}
       <div className="absolute inset-0 z-0">
-        <img
+        <motion.img
+          initial={{ scale: 1.05 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
           src={heroImg}
           alt="Scenic view of the Albanian Riviera in Ksamil and Sarandë with turquoise waters"
           referrerPolicy="no-referrer"
@@ -47,21 +56,37 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14">
         
         {/* Subtle Editorial Kicker */}
-        <div className="flex items-center gap-2 text-xs text-amber-300 font-semibold mb-3">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="flex items-center gap-2 text-xs text-amber-300 font-semibold mb-3"
+        >
           <MapPin className="w-4 h-4 text-amber-400" />
           <span>Voyage · Official Albania Tour & Travel Advisory</span>
           <span aria-hidden="true">·</span>
           <span>Verified Traveler Guide & Live AI Insights</span>
-        </div>
+        </motion.div>
 
         {/* Hero Headline */}
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl leading-tight mb-4" style={{ textWrap: 'balance' }}>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white max-w-3xl leading-tight mb-4"
+          style={{ textWrap: 'balance' }}
+        >
           Discover Albania with Confidence. Every Question Answered.
-        </h1>
+        </motion.h1>
 
-        <p className="text-base sm:text-lg text-slate-200 max-w-2xl mb-8 leading-relaxed">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="text-base sm:text-lg text-slate-200 max-w-2xl mb-8 leading-relaxed"
+        >
           Official guidance on Albanian Lek, private transport & drivers, eSIM connectivity, plugs, and customs. Leave reviews on answers or ask our AI engine to auto-synthesize new travel inquiries directly into the database.
-        </p>
+        </motion.p>
 
         {/* Search Bar Container */}
         <div className="max-w-2xl bg-white p-2 rounded-xl shadow-2xl flex flex-col sm:flex-row items-stretch gap-2 mb-6 text-slate-900">
@@ -84,14 +109,18 @@ export const Hero: React.FC<HeroProps> = ({
             >
               <span>Search</span>
             </button>
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={onAskClick}
               title="Ask AI Travel Engine"
               className="px-3.5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm font-semibold rounded-lg transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1.5"
             >
-              <Sparkles className="w-4 h-4 text-amber-600" />
+              <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ repeat: Infinity, duration: 3, repeatDelay: 2 }}>
+                <Sparkles className="w-4 h-4 text-amber-600" />
+              </motion.div>
               <span className="hidden sm:inline">Ask AI</span>
-            </button>
+            </motion.button>
           </div>
         </div>
 
@@ -139,6 +168,6 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 };
