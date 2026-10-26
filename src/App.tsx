@@ -85,6 +85,25 @@ export default function App() {
     fetchAllData();
   }, []);
 
+  // Check URL hash on load or hash change to deep-link to specific FAQ
+  useEffect(() => {
+    if (isLoading || faqs.length === 0) return;
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#faq-')) {
+      const faqId = hash.replace('#faq-', '');
+      setActiveTab('faqs');
+      setSelectedCategory('all');
+      setSearchQuery('');
+      setHighlightedFaqId(faqId);
+      setTimeout(() => {
+        const elem = document.getElementById(faqId);
+        if (elem) {
+          elem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 300);
+    }
+  }, [isLoading, faqs.length]);
+
   // Filter FAQs based on category and search query
   const filteredFaqs = faqs.filter((faq) => {
     if (selectedCategory !== 'all' && faq.category !== selectedCategory) {

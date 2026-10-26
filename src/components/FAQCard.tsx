@@ -18,7 +18,10 @@ import {
   FileText,
   Briefcase,
   HeartPulse,
-  MapPin
+  MapPin,
+  Link,
+  Check,
+  Printer
 } from 'lucide-react';
 import { FAQItem, FAQReview } from '../types.js';
 
@@ -42,6 +45,71 @@ export const FAQCard: React.FC<FAQCardProps> = ({
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const [showReviews, setShowReviews] = useState(false);
   const [hasVoted, setHasVoted] = useState<'yes' | 'no' | null>(null);
+  const [copiedLink, setCopiedLink] = useState(false);
+
+  const handleCopyLink = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const url = `${window.location.origin}${window.location.pathname}#faq-${faq.id}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopiedLink(true);
+      window.location.hash = `faq-${faq.id}`;
+      setTimeout(() => setCopiedLink(false), 2500);
+    }).catch((err) => {
+      console.error('Failed to copy link:', err);
+    });
+  };
+
+  const handlePrint = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const printWindow = window.open('', '_blank', 'width=800,height=600');
+    if (!printWindow) return;
+
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>${faq.question} - Voyage Albania Print Guide</title>
+          <style>
+            body { font-family: 'Plus Jakarta Sans', Arial, sans-serif; padding: 40px; color: #0f172a; line-height: 1.6; max-width: 700px; margin: 0 auto; }
+            .header { border-bottom: 2px solid #f59e0b; padding-bottom: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; }
+            .brand { font-size: 14px; font-weight: 800; color: #b45309; text-transform: uppercase; letter-spacing: 1px; }
+            .meta { font-size: 12px; color: #64748b; }
+            h1 { font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 16px; }
+            .direct-answer { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px; margin-bottom: 20px; font-size: 15px; font-weight: 600; color: #78350f; border-radius: 4px; }
+            .body-content { font-size: 14px; color: #334155; margin-bottom: 30px; }
+            .body-content p { margin-bottom: 12px; }
+            .body-content ul { margin-left: 20px; margin-bottom: 12px; }
+            .footer { margin-top: 40px; border-top: 1px solid #e2e8f0; padding-top: 16px; font-size: 11px; color: #94a3b8; display: flex; justify-content: space-between; }
+            @media print {
+              button { display: none; }
+              body { padding: 0; }
+            }
+          </style>
+        </head>
+        <body>
+          <div class="header">
+            <div class="brand">Voyage Albania · Official Travel Briefing</div>
+            <div class="meta">Verified: ${faq.lastVerifiedDate}</div>
+          </div>
+          <h1>${faq.question}</h1>
+          ${faq.officialDirectAnswer ? `<div class="direct-answer"><strong>Tour Summary:</strong> ${faq.officialDirectAnswer}</div>` : ''}
+          <div class="body-content">
+            ${faq.answer.replace(/\n/g, '<br/>')}
+          </div>
+          <div class="footer">
+            <span>Category: ${faq.category}</span>
+            <span>Emergency SOS: 112 | 24/7 Concierge Active</span>
+          </div>
+          <script>
+            window.onload = function() { window.print(); };
+          </script>
+        </body>
+      </html>
+    `;
+
+    printWindow.document.write(htmlContent);
+    printWindow.document.close();
+  };
 
   const handleVote = (e: React.MouseEvent, helpful: boolean) => {
     e.stopPropagation();
@@ -290,7 +358,34 @@ export const FAQCard: React.FC<FAQCardProps> = ({
             </div>
 
             {/* Review & Feedback Actions */}
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={handleCopyLink}
+                className="px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-slate-900 bg-white border border-slate-200 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 shadow-2xs"
+                title="Copy unique deep-link for this FAQ"
+              >
+                {copiedLink ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-emerald-600" />
+                    <span className="text-emerald-700 font-bold">Link Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Link className="w-3.5 h-3.5 text-slate-500" />
+                    <span>Copy Link</span>
+                  </>
+                )}
+              </button>
+
+              <button
+                onClick={handlePrint}
+                className="px-3.5 py-1.5 text-xs font-semibold text-amber-900 bg-gradient-to-r from-amber-100 to-amber-200 hover:from-amber-200 hover:to-amber-300 border border-amber-300 rounded-lg transition-all shadow-2xs cursor-pointer flex items-center gap-1.5"
+                title="Open printer-friendly layout"
+              >
+                <Printer className="w-3.5 h-3.5 text-amber-700" />
+                <span>Print Guide</span>
+              </button>
+
               <button
                 onClick={() => setShowReviews(!showReviews)}
                 className="px-3 py-1.5 text-xs font-medium text-slate-700 hover:text-slate-900 bg-white border border-slate-200 rounded-lg transition-colors cursor-pointer"
