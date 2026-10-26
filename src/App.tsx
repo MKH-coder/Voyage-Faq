@@ -10,7 +10,10 @@ import {
   PhoneCall, 
   ChevronRight,
   Compass,
-  RotateCcw
+  RotateCcw,
+  Download,
+  Printer,
+  FileText
 } from 'lucide-react';
 
 import { FAQItem, FAQReview, UserQueryLog, AIInsightsStats } from './types.js';
@@ -197,6 +200,254 @@ export default function App() {
     }, 200);
   };
 
+  // Generate printable PDF version of the current FAQ list for offline travelers
+  const handleDownloadGuide = () => {
+    const guideWindow = window.open('', '_blank');
+    if (!guideWindow) {
+      alert('Please allow popups to open and print the offline PDF travel guide.');
+      return;
+    }
+
+    const dateStr = new Date().toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+
+    const faqsToPrint = filteredFaqs.length > 0 ? filteredFaqs : faqs;
+
+    guideWindow.document.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>Voyage Albania - Official Travel FAQ & Offline Guide</title>
+          <style>
+            @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+            body {
+              font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+              color: #0f172a;
+              margin: 0;
+              padding: 40px;
+              background: #ffffff;
+              line-height: 1.6;
+            }
+            .header-bar {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-bottom: 3px solid #d97706;
+              padding-bottom: 20px;
+              margin-bottom: 24px;
+            }
+            .brand-title {
+              font-size: 24px;
+              font-weight: 800;
+              color: #0f172a;
+              margin: 0;
+              letter-spacing: -0.5px;
+            }
+            .brand-subtitle {
+              font-size: 13px;
+              color: #64748b;
+              font-weight: 600;
+              margin-top: 4px;
+            }
+            .badge {
+              background: #fef3c7;
+              color: #92400e;
+              border: 1px solid #fde68a;
+              padding: 6px 14px;
+              border-radius: 8px;
+              font-weight: 800;
+              font-size: 11px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            }
+            .emergency-box {
+              background: #fffbeeb;
+              border: 1.5px solid #fcd34d;
+              border-left: 6px solid #d97706;
+              border-radius: 12px;
+              padding: 16px 20px;
+              margin-bottom: 32px;
+            }
+            .emergency-heading {
+              font-weight: 800;
+              color: #78350f;
+              font-size: 13px;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              margin-bottom: 10px;
+              display: flex;
+              align-items: center;
+              gap: 8px;
+            }
+            .emergency-grid {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 12px;
+            }
+            .emergency-card {
+              background: #ffffff;
+              border: 1px solid #fde68a;
+              border-radius: 8px;
+              padding: 8px 12px;
+              text-align: center;
+            }
+            .emergency-label {
+              font-size: 10px;
+              text-transform: uppercase;
+              font-weight: 700;
+              color: #92400e;
+            }
+            .emergency-number {
+              font-size: 16px;
+              font-weight: 800;
+              color: #78350f;
+            }
+            .emergency-note {
+              font-size: 11px;
+              color: #92400e;
+              margin-top: 10px;
+              font-weight: 600;
+            }
+            .faq-card {
+              margin-bottom: 24px;
+              border: 1px solid #e2e8f0;
+              border-radius: 12px;
+              padding: 20px 24px;
+              background: #fafafa;
+              page-break-inside: avoid;
+            }
+            .faq-index {
+              font-size: 11px;
+              font-weight: 800;
+              color: #d97706;
+              text-transform: uppercase;
+              letter-spacing: 0.6px;
+              margin-bottom: 6px;
+            }
+            .faq-question {
+              font-size: 16px;
+              font-weight: 800;
+              color: #0f172a;
+              margin-bottom: 12px;
+              line-height: 1.35;
+            }
+            .direct-answer {
+              background: #ffffff;
+              border-left: 4px solid #d97706;
+              border: 1px solid #e2e8f0;
+              border-left-width: 5px;
+              border-left-color: #d97706;
+              padding: 12px 16px;
+              border-radius: 8px;
+              font-size: 13px;
+              font-weight: 700;
+              color: #1e293b;
+              margin-bottom: 12px;
+            }
+            .answer-text {
+              font-size: 12px;
+              color: #334155;
+              white-space: pre-line;
+              line-height: 1.6;
+            }
+            .print-btn {
+              position: fixed;
+              top: 20px;
+              right: 20px;
+              background: #0f172a;
+              color: #ffffff;
+              border: none;
+              padding: 10px 20px;
+              border-radius: 8px;
+              font-weight: 700;
+              font-size: 13px;
+              cursor: pointer;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+              transition: all 0.2s;
+            }
+            .print-btn:hover {
+              background: #d97706;
+            }
+            @media print {
+              .no-print { display: none !important; }
+              body { padding: 0; background: #fff; }
+              .faq-card { border: 1px solid #cbd5e1; background: #fff; }
+            }
+          </style>
+        </head>
+        <body>
+          <button class="print-btn no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+          <div class="header-bar">
+            <div>
+              <h1 class="brand-title">🇦🇱 Voyage Albania</h1>
+              <div class="brand-subtitle">Official Traveler FAQ & Offline Departure Guide</div>
+            </div>
+            <div style="text-align: right;">
+              <span class="badge">Verified Tour Guide</span>
+              <div style="font-size: 11px; color: #64748b; margin-top: 6px; font-weight: 600;">Issue Date: ${dateStr}</div>
+            </div>
+          </div>
+
+          <div class="emergency-box">
+            <div class="emergency-heading">🚨 Emergency Quick Dial & Tour Concierge</div>
+            <div class="emergency-grid">
+              <div class="emergency-card">
+                <div class="emergency-label">General Emergency</div>
+                <div class="emergency-number">112</div>
+              </div>
+              <div class="emergency-card">
+                <div class="emergency-label">Police Services</div>
+                <div class="emergency-number">129</div>
+              </div>
+              <div class="emergency-card">
+                <div class="emergency-label">Fire Rescue</div>
+                <div class="emergency-number">128</div>
+              </div>
+              <div class="emergency-card">
+                <div class="emergency-label">Ambulance</div>
+                <div class="emergency-number">127</div>
+              </div>
+            </div>
+            <div class="emergency-note">
+              📌 <strong>Tour Operator Support:</strong> If any emergency occurs, please inform your tour agent or dedicated driver immediately. We are available 24/7 to assist.
+            </div>
+          </div>
+
+          <div class="faqs-list">
+            ${faqsToPrint.map((item, idx) => `
+              <div class="faq-card">
+                <div class="faq-index">Question #${item.orderIndex || idx + 1} • ${item.category.replace('-', ' ').toUpperCase()}</div>
+                <div class="faq-question">${item.question}</div>
+                <div class="direct-answer">
+                  <strong>Official Answer:</strong> ${item.officialDirectAnswer}
+                </div>
+                <div class="answer-text">${item.answer.replace(/###\s*/g, '').replace(/\*\*/g, '')}</div>
+              </div>
+            `).join('')}
+          </div>
+
+          <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 11px; color: #94a3b8; font-weight: 600;">
+            Voyage Albania • Dedicated Private Transport & Driver Guide • www.voyagealbania.com
+          </div>
+
+          <script>
+            window.onload = function() {
+              setTimeout(function() {
+                window.print();
+              }, 400);
+            };
+          </script>
+        </body>
+      </html>
+    `);
+    guideWindow.document.close();
+  };
+
   // Reset database for test purposes
   const handleResetSeed = async () => {
     if (confirm('Reset database to the initial 10 official Albania FAQs and seed reviews?')) {
@@ -280,6 +531,14 @@ export default function App() {
               }`}
             >
               All FAQs ({faqs.length})
+            </button>
+            <button
+              onClick={handleDownloadGuide}
+              className="px-3.5 py-2 text-xs font-bold rounded-lg bg-amber-600 hover:bg-amber-700 text-white transition-all cursor-pointer flex items-center gap-1.5 shadow-xs"
+              title="Download or Print Offline PDF Travel Guide"
+            >
+              <Download className="w-3.5 h-3.5 text-amber-200" />
+              <span>Download as Guide</span>
             </button>
             <button
               onClick={() => setActiveTab('reviews')}
@@ -443,9 +702,18 @@ export default function App() {
                       The 10 essential questions and tour operator answers prepared directly for your departure.
                     </p>
                   </div>
-                  <span className="text-[11px] font-bold text-amber-800 bg-amber-100/90 border border-amber-200 px-3 py-1 rounded-lg shrink-0 self-start sm:self-auto">
-                    Verified Q&A 1–10
-                  </span>
+                  <div className="flex items-center gap-2 shrink-0 self-start sm:self-auto">
+                    <button
+                      onClick={handleDownloadGuide}
+                      className="text-[11px] font-bold text-amber-900 bg-amber-200/90 hover:bg-amber-300 border border-amber-300 px-3 py-1 rounded-lg transition-colors flex items-center gap-1 cursor-pointer"
+                    >
+                      <Download className="w-3.5 h-3.5 text-amber-800" />
+                      <span>Download PDF Guide</span>
+                    </button>
+                    <span className="text-[11px] font-bold text-amber-800 bg-amber-100/90 border border-amber-200 px-3 py-1 rounded-lg">
+                      Verified Q&A 1–10
+                    </span>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 text-xs">
