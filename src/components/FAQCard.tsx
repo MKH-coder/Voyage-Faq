@@ -31,6 +31,7 @@ interface FAQCardProps {
   onVote: (faqId: string, isHelpful: boolean) => void;
   onOpenReviewModal: (faq: FAQItem) => void;
   onVoteReviewHelpful: (reviewId: string) => void;
+  onSelectCategory?: (category: FAQCategory) => void;
   defaultExpanded?: boolean;
 }
 
@@ -40,12 +41,36 @@ export const FAQCard: React.FC<FAQCardProps> = ({
   onVote,
   onOpenReviewModal,
   onVoteReviewHelpful,
+  onSelectCategory,
   defaultExpanded = false,
 }) => {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const [showReviews, setShowReviews] = useState(false);
   const [hasVoted, setHasVoted] = useState<'yes' | 'no' | null>(null);
   const [copiedLink, setCopiedLink] = useState(false);
+
+  const getCategoryBadgeStyle = (cat: string) => {
+    switch (cat) {
+      case 'currency-budget': 
+        return { label: 'Budget', bg: 'bg-emerald-100 text-emerald-800 border-emerald-300 hover:bg-emerald-200' };
+      case 'transit-transport': 
+        return { label: 'Transport', bg: 'bg-sky-100 text-sky-800 border-sky-300 hover:bg-sky-200' };
+      case 'customs-etiquette': 
+        return { label: 'Customs & Culture', bg: 'bg-purple-100 text-purple-800 border-purple-300 hover:bg-purple-200' };
+      case 'connectivity-tech': 
+        return { label: 'Tech & SIM', bg: 'bg-indigo-100 text-indigo-800 border-indigo-300 hover:bg-indigo-200' };
+      case 'safety-emergency': 
+        return { label: 'Emergency', bg: 'bg-rose-100 text-rose-800 border-rose-300 hover:bg-rose-200' };
+      case 'visa-passports': 
+        return { label: 'Visas', bg: 'bg-amber-100 text-amber-800 border-amber-300 hover:bg-amber-200' };
+      case 'baggage-packing': 
+        return { label: 'Packing', bg: 'bg-teal-100 text-teal-800 border-teal-300 hover:bg-teal-200' };
+      case 'health-insurance': 
+        return { label: 'Health', bg: 'bg-cyan-100 text-cyan-800 border-cyan-300 hover:bg-cyan-200' };
+      default: 
+        return { label: 'Advisory', bg: 'bg-slate-100 text-slate-800 border-slate-300 hover:bg-slate-200' };
+    }
+  };
 
   const handleCopyLink = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -215,10 +240,23 @@ export const FAQCard: React.FC<FAQCardProps> = ({
         className="p-5 sm:p-6 cursor-pointer select-none"
       >
         {/* Unboxed Metadata Header */}
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-500 mb-2.5">
-          <span className="font-semibold text-amber-700">
-            {getCategoryLabel(faq.category)}
-          </span>
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-xs text-slate-500 mb-2.5">
+          {(() => {
+            const badge = getCategoryBadgeStyle(faq.category);
+            return (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (onSelectCategory) onSelectCategory(faq.category);
+                }}
+                className={`px-2.5 py-1 rounded-md font-bold text-xs border transition-all cursor-pointer shadow-2xs inline-flex items-center gap-1 ${badge.bg}`}
+                title={`Filter by ${badge.label}`}
+              >
+                <span>{badge.label}</span>
+              </button>
+            );
+          })()}
           <span aria-hidden="true" className="text-slate-300">·</span>
           <span className="flex items-center gap-1">
             <Calendar className="w-3.5 h-3.5 text-slate-400" />

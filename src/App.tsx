@@ -534,6 +534,10 @@ export default function App() {
                         onVote={handleVote}
                         onOpenReviewModal={(item) => setReviewModalFaq(item)}
                         onVoteReviewHelpful={handleVoteReviewHelpful}
+                        onSelectCategory={(cat) => {
+                          setSelectedCategory(cat);
+                          window.scrollTo({ top: 350, behavior: 'smooth' });
+                        }}
                         defaultExpanded={faqs.length <= 3 || isHighlighted}
                       />
                     </div>
