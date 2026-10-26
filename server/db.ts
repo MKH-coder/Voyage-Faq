@@ -262,6 +262,248 @@ export const ALBANIA_OFFICIAL_FAQS: FAQItem[] = [
     lastVerifiedDate: '2026-10-18',
     createdAt: '2026-03-01T10:45:00Z',
     updatedAt: '2026-10-18T10:30:00Z',
+  },
+  {
+    id: 'albania-faq-11-dietary-options',
+    orderIndex: 11,
+    question: '11. What dietary options (Vegetarian, Halal, Vegan) are available?',
+    officialDirectAnswer: 'Fresh Mediterranean produce is abundant. Vegetarian and Halal options are common across local tavernas and restaurants.',
+    summary: 'Vegetarian, Halal, and fresh plant-based Mediterranean dishes are widely available throughout tavernas and restaurants.',
+    answer: `### Tour Operator Answer:
+**Fresh Mediterranean produce is abundant. Vegetarian and Halal options are common across local tavernas and restaurants.**
+
+### Dietary Advice & Local Options:
+- **Vegetarian Delights:** Albanian cuisine features many naturally vegetarian dishes like *Fërgesë* (peppers and cottage cheese), *Byrek me Spinaq* (spinach pastry), *Tarator* (cucumber yogurt soup), and stuffed aubergines (*Patëllxhanë të Mbushur*).
+- **Halal Dining:** Halal meat options are standard in most traditional Albanian grill houses (*Zgjara*).
+- **Gluten-Free & Vegan:** Fresh seasonal salads, grilled vegetables, olive oils, and fruit platters are available everywhere. Notify your tour guide for custom restaurant arrangements.`,
+    category: 'customs-etiquette',
+    tags: ['Vegetarian', 'Halal Food', 'Dietary Restrictions', 'Albanian Cuisine', 'Vegan'],
+    helpfulCount: 96,
+    unhelpfulCount: 1,
+    viewCount: 1150,
+    featured: false,
+    source: 'editorial',
+    lastVerifiedDate: '2026-10-20',
+    createdAt: '2026-03-01T10:50:00Z',
+    updatedAt: '2026-10-20T11:00:00Z',
+  },
+  {
+    id: 'albania-faq-12-tap-water-safety',
+    orderIndex: 12,
+    question: '12. Is tap water safe to drink in Albania?',
+    officialDirectAnswer: 'Tap water is safe for showering and brushing teeth, but bottled spring water is recommended for drinking throughout your trip.',
+    summary: 'Tap water is fine for hygiene and showering; bottled spring water is recommended for drinking.',
+    answer: `### Tour Operator Answer:
+**Tap water is safe for showering and brushing teeth, but bottled spring water is recommended for drinking throughout your trip.**
+
+### Health & Hydration Advice:
+- **Bottled Water Availability:** Natural spring water bottled from cold mountain sources (such as *Lajthiza* and *Tepelena*) is widely sold in restaurants, supermarkets, and kiosks for ~50 ALL (€0.50).
+- **Showering & Hygiene:** Tap water in hotels is chlorinated and perfectly safe for bathing, showering, and brushing teeth.
+- **Eco Tip:** Reusable thermal flasks can be refilled at natural mountain spring fountains found along rural highways and mountain passes.`,
+    category: 'health-insurance',
+    tags: ['Tap Water', 'Bottled Water', 'Health', 'Hydration', 'Safety'],
+    helpfulCount: 118,
+    unhelpfulCount: 0,
+    viewCount: 1420,
+    featured: false,
+    source: 'editorial',
+    lastVerifiedDate: '2026-10-21',
+    createdAt: '2026-03-01T10:55:00Z',
+    updatedAt: '2026-10-21T09:30:00Z',
+  },
+  {
+    id: 'albania-faq-13-passport-visa-regulations',
+    orderIndex: 13,
+    question: '13. What passport validity and entry regulations apply to tourists?',
+    officialDirectAnswer: 'Passports must be valid for at least 3 months beyond your stay. US, UK, EU, and Schengen citizens enjoy visa-free entry.',
+    summary: 'Passports must be valid for 3+ months. Citizens of US, UK, EU, and Schengen countries enter visa-free.',
+    answer: `### Tour Operator Answer:
+**Passports must be valid for at least 3 months beyond your stay. US, UK, EU, and Schengen citizens enjoy visa-free entry.**
+
+### Entry Guidelines & Allowances:
+- **US Citizens Special Allowance:** US passport holders can stay in Albania visa-free for up to 1 full year!
+- **EU/UK/Schengen Passport Holders:** Visa-free stay for up to 90 days within a 180-day period.
+- **Passport Stamps:** Ensure border control stamps your passport upon arrival at Tirana Airport or land border crossings.`,
+    category: 'visa-passports',
+    tags: ['Passport Validity', 'Visa-Free', 'Entry Requirements', 'Customs', 'Immigration'],
+    helpfulCount: 124,
+    unhelpfulCount: 1,
+    viewCount: 1560,
+    featured: true,
+    source: 'editorial',
+    lastVerifiedDate: '2026-10-22',
+    createdAt: '2026-03-01T11:00:00Z',
+    updatedAt: '2026-10-22T14:15:00Z',
+  },
+  {
+    id: 'albania-faq-14-drone-rules',
+    orderIndex: 14,
+    question: '14. Can I fly a drone for travel photography in Albania?',
+    officialDirectAnswer: 'Recreational drone photography is permitted in open scenic areas, but strictly prohibited near airports, military zones, and crowded historical castles.',
+    summary: 'Recreational drone flying is allowed in open rural areas, but restricted near airports, government sites, and military zones.',
+    answer: `### Tour Operator Answer:
+**Recreational drone photography is permitted in open scenic areas, but strictly prohibited near airports, military zones, and crowded historical castles.**
+
+### Aerial Photography Advice:
+- **Permitted Open Areas:** Flying mini drones for landscape shots along the coastal beaches, Llogara Pass, and mountain valleys is very popular.
+- **Restricted No-Fly Zones:** Avoid flying directly over airport perimeters, government buildings in central Tirana, and active military installations.
+- **Courtesy:** Respect privacy at crowded beach clubs or outdoor dining plazas.`,
+    category: 'connectivity-tech',
+    tags: ['Drones', 'Travel Photography', 'Regulations', 'Aerial Views', 'Tech'],
+    helpfulCount: 87,
+    unhelpfulCount: 2,
+    viewCount: 1020,
+    featured: false,
+    source: 'editorial',
+    lastVerifiedDate: '2026-10-19',
+    createdAt: '2026-03-01T11:05:00Z',
+    updatedAt: '2026-10-19T16:00:00Z',
+  },
+  {
+    id: 'albania-faq-15-traditional-cuisine',
+    orderIndex: 15,
+    question: '15. What traditional Albanian dishes should every traveler try?',
+    officialDirectAnswer: 'Must-try specialties include Byrek pastry, Tavë Kosi baked lamb, Fërgesë, and fresh grilled seafood along the Ionian Riviera.',
+    summary: 'Top dishes include savory Byrek pastry, Tavë Kosi (baked lamb with yogurt), Fërgesë, and fresh coastal seafood.',
+    answer: `### Tour Operator Answer:
+**Must-try specialties include Byrek pastry, Tavë Kosi baked lamb, Fërgesë, and fresh grilled seafood along the Ionian Riviera.**
+
+### Top Gastronomic Highlights:
+- **Tavë Kosi:** The national dish—tender lamb baked in an earthenware dish with rice, eggs, and seasoned yogurt sauce.
+- **Byrek:** Flaky filo pastry filled with minced meat, ricotta cheese, or wild spinach—perfect for breakfast with a glass of *Dhallë* (savory buttermilk).
+- **Fërgesë:** Warm casserole of roasted bell peppers, tomatoes, garlic, and salted cottage cheese (*gjizë*).
+- **Riviera Seafood:** Fresh sea bass, octopus, and king prawns grilled over charcoal at Sarandë and Ksamil seaside tavernas.`,
+    category: 'customs-etiquette',
+    tags: ['Traditional Food', 'Byrek', 'Tavë Kosi', 'Albanian Cuisine', 'Gastronomy'],
+    helpfulCount: 135,
+    unhelpfulCount: 0,
+    viewCount: 1680,
+    featured: true,
+    source: 'editorial',
+    lastVerifiedDate: '2026-10-23',
+    createdAt: '2026-03-01T11:10:00Z',
+    updatedAt: '2026-10-23T10:00:00Z',
+  },
+  {
+    id: 'albania-faq-16-tipping-etiquette',
+    orderIndex: 16,
+    question: '16. How does tipping and restaurant service gratuity work?',
+    officialDirectAnswer: 'Tipping is not legally required, but leaving 10% cash or rounding up the bill is customary for good service in cafes and restaurants.',
+    summary: 'Tipping is not mandatory, but rounding up or leaving ~10% cash for restaurant and café service is warmly appreciated.',
+    answer: `### Tour Operator Answer:
+**Tipping is not legally required, but leaving 10% cash or rounding up the bill is customary for good service in cafes and restaurants.**
+
+### Tipping Customs in Practice:
+- **Cafes & Espresso Bars:** Rounding up small coffee change (e.g., leaving 20–50 ALL) is standard practice.
+- **Restaurants:** Leaving 10% in cash on the table is customary for attentive dinner service.
+- **Tour Drivers & Guides:** A small cash gratuity at the conclusion of a multi-day private tour is a common gesture of gratitude for exceptional service.`,
+    category: 'currency-budget',
+    tags: ['Tipping', 'Gratuity', 'Restaurant Bills', 'Service', 'Cash Tips'],
+    helpfulCount: 92,
+    unhelpfulCount: 1,
+    viewCount: 1110,
+    featured: false,
+    source: 'editorial',
+    lastVerifiedDate: '2026-10-17',
+    createdAt: '2026-03-01T11:15:00Z',
+    updatedAt: '2026-10-17T12:00:00Z',
+  },
+  {
+    id: 'albania-faq-17-safety-solo-travel',
+    orderIndex: 17,
+    question: '17. Is Albania safe for solo travelers and families?',
+    officialDirectAnswer: 'Albania is statistically one of the safest countries in Southern Europe, with extremely low violent crime rates and welcoming hospitality.',
+    summary: 'Albania is exceptionally safe for families, solo travelers, and night walks thanks to strong community values and hospitality.',
+    answer: `### Tour Operator Answer:
+**Albania is statistically one of the safest countries in Southern Europe, with extremely low violent crime rates and welcoming hospitality.**
+
+### Safety Environment & Culture:
+- **Low Crime Rate:** Violent crime against tourists is practically nonexistent. Standard precautions for wallets in crowded markets apply.
+- **Evening *Xhiro* Walk:** Families and locals take evening strolls (*Xhiro*) through town plazas late into the night in a friendly, family-safe atmosphere.
+- **Solo Female Travelers:** Solo travelers consistently report high levels of respect, assistance from local shopkeepers, and helpful directions.`,
+    category: 'safety-emergency',
+    tags: ['Safety', 'Solo Travelers', 'Family Travel', 'Crime Rate', 'Hospitality'],
+    helpfulCount: 154,
+    unhelpfulCount: 0,
+    viewCount: 1890,
+    featured: true,
+    source: 'editorial',
+    lastVerifiedDate: '2026-10-24',
+    createdAt: '2026-03-01T11:20:00Z',
+    updatedAt: '2026-10-24T08:30:00Z',
+  },
+  {
+    id: 'albania-faq-18-best-season-weather',
+    orderIndex: 18,
+    question: '18. What is the best season and weather for visiting Albania?',
+    officialDirectAnswer: 'May to October offers sunny, warm Mediterranean weather. May-June and September-October provide ideal beach temperatures without midsummer crowds.',
+    summary: 'May through October is best. Shoulder months (May, June, September) offer warm seas and pleasant weather with fewer crowds.',
+    answer: `### Tour Operator Answer:
+**May to October offers sunny, warm Mediterranean weather. May-June and September-October provide ideal beach temperatures without midsummer crowds.**
+
+### Seasonal Breakdown:
+- **Shoulder Season (May–June & Sept–Oct):** Ideal temperatures (24°C–28°C), clear waters, easy photography, and quiet heritage towns.
+- **Peak Summer (July–August):** Hot sunny days (32°C–36°C) perfect for swimming, beach festivals, and vibrant coastal nightlife.
+- **Mountain Trekking (June–September):** Optimal clear trail conditions in Theth, Valbona, and the Accursed Mountains.`,
+    category: 'baggage-packing',
+    tags: ['Best Time to Visit', 'Weather', 'Seasons', 'Riviera Summer', 'Hiking'],
+    helpfulCount: 110,
+    unhelpfulCount: 1,
+    viewCount: 1380,
+    featured: false,
+    source: 'editorial',
+    lastVerifiedDate: '2026-10-16',
+    createdAt: '2026-03-01T11:25:00Z',
+    updatedAt: '2026-10-16T15:00:00Z',
+  },
+  {
+    id: 'albania-faq-19-health-pharmacies',
+    orderIndex: 19,
+    question: '19. What should I know about health insurance and pharmacies?',
+    officialDirectAnswer: 'Travel health insurance is strongly advised. Green-cross pharmacies (Farmaci) are plentiful in towns and carry common medications without prescription.',
+    summary: 'Travel health insurance is recommended. Local pharmacies (*Farmaci*) carry extensive medications and offer knowledgeable advice.',
+    answer: `### Tour Operator Answer:
+**Travel health insurance is strongly advised. Green-cross pharmacies (Farmaci) are plentiful in towns and carry common medications without prescription.**
+
+### Healthcare Access & Medical Facilities:
+- **Green Cross Pharmacies (*Farmaci*):** Located every few blocks in towns. Pharmacists speak English or Italian and can dispense common remedies for heat, digestion, or allergies.
+- **Private Clinics:** Modern private medical centers in Tirana and Sarandë offer quick consultations at affordable out-of-pocket costs.
+- **24/7 Tour Coordination:** Contact emergency 112 or our concierge team immediately if hospital assistance is required.`,
+    category: 'health-insurance',
+    tags: ['Travel Insurance', 'Pharmacies', 'Medical Care', 'Farmaci', 'Health'],
+    helpfulCount: 88,
+    unhelpfulCount: 0,
+    viewCount: 1040,
+    featured: false,
+    source: 'editorial',
+    lastVerifiedDate: '2026-10-14',
+    createdAt: '2026-03-01T11:30:00Z',
+    updatedAt: '2026-10-14T11:20:00Z',
+  },
+  {
+    id: 'albania-faq-20-souvenirs-shopping',
+    orderIndex: 20,
+    question: '20. What regional souvenirs and authentic crafts are best to bring home?',
+    officialDirectAnswer: 'Handcrafted silver filigree jewelry, Berat olive oil, mountain tea (Çaj Mali), Albanian raki, and traditional woven kilim rugs.',
+    summary: 'Popular local keepsakes include silver filigree jewelry, cold-pressed olive oil, organic mountain tea (*Çaj Mali*), and artisanal crafts.',
+    answer: `### Tour Operator Answer:
+**Handcrafted silver filigree jewelry, Berat olive oil, mountain tea (Çaj Mali), Albanian raki, and traditional woven kilim rugs.**
+
+### Recommended Authentic Keepsakes:
+- **Mountain Tea (*Çaj Mali*):** Dried wild Sideritis herbs harvested from high limestone peaks—known for fragrant citrus aroma and health benefits.
+- **Silver Filigree (*Argjendari*):** Delicately woven silver brooches and earrings handcrafted in Kruja Bazaar and Shkodër workshops.
+- **Artisanal Olive Oil:** Extra-virgin cold-pressed olive oil from ancient groves surrounding Berat and Vlorë.
+- **Albanian Raki:** Traditional grape or plum brandy produced in copper stills—a classic gift bottle.`,
+    category: 'baggage-packing',
+    tags: ['Souvenirs', 'Artisanal Crafts', 'Mountain Tea', 'Raki', 'Shopping'],
+    helpfulCount: 126,
+    unhelpfulCount: 0,
+    viewCount: 1490,
+    featured: false,
+    source: 'editorial',
+    lastVerifiedDate: '2026-10-25',
+    createdAt: '2026-03-01T11:35:00Z',
+    updatedAt: '2026-10-25T09:00:00Z',
   }
 ];
 

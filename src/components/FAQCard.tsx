@@ -23,7 +23,7 @@ import {
   Check,
   Printer
 } from 'lucide-react';
-import { FAQItem, FAQReview } from '../types.js';
+import { FAQItem, FAQReview, FAQCategory } from '../types.js';
 
 interface FAQCardProps {
   faq: FAQItem;
