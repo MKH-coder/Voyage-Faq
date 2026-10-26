@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Search, Sparkles, ShieldCheck, HelpCircle, MapPin } from 'lucide-react';
+import { Search, Sparkles, ShieldCheck, HelpCircle, MapPin, Compass } from 'lucide-react';
 import heroImg from '../assets/images/albania_riviera_ksamil_1792430595700.jpg';
 
 interface HeroProps {
@@ -8,6 +8,7 @@ interface HeroProps {
   setSearchQuery: (query: string) => void;
   onSearchSubmit: (query: string) => void;
   onAskClick: () => void;
+  onOpen3DExplorer?: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
@@ -15,6 +16,7 @@ export const Hero: React.FC<HeroProps> = ({
   setSearchQuery,
   onSearchSubmit,
   onAskClick,
+  onOpen3DExplorer,
 }) => {
   const quickSearches = [
     'Albanian Lek (ALL)',
@@ -121,6 +123,19 @@ export const Hero: React.FC<HeroProps> = ({
               </motion.div>
               <span className="hidden sm:inline">Ask AI</span>
             </motion.button>
+
+            {onOpen3DExplorer && (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={onOpen3DExplorer}
+                title="Launch Interactive 3D Tour Diorama"
+                className="px-3.5 py-2.5 bg-gradient-to-r from-amber-500 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white text-sm font-semibold rounded-lg transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 shadow-sm"
+              >
+                <Compass className="w-4 h-4 text-amber-200" />
+                <span className="hidden sm:inline">3D Diorama</span>
+              </motion.button>
+            )}
           </div>
         </div>
 

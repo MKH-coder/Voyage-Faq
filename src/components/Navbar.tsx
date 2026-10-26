@@ -2,8 +2,8 @@ import React from 'react';
 import { Compass, Sparkles, MessageSquareHeart, HelpCircle, BookOpen } from 'lucide-react';
 
 interface NavbarProps {
-  activeTab: 'faqs' | 'ask' | 'reviews' | 'insights';
-  setActiveTab: (tab: 'faqs' | 'ask' | 'reviews' | 'insights') => void;
+  activeTab: 'faqs' | 'ask' | 'reviews' | 'insights' | '3d-explorer';
+  setActiveTab: (tab: 'faqs' | 'ask' | 'reviews' | 'insights' | '3d-explorer') => void;
   onOpenAskModal: () => void;
 }
 
@@ -28,6 +28,19 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenA
 
         {/* Zone 2: 4-5 concise single-line nav links */}
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+          <button
+            onClick={() => setActiveTab('3d-explorer')}
+            className={`whitespace-nowrap shrink-0 transition-colors py-1 cursor-pointer flex items-center gap-1.5 ${
+              activeTab === '3d-explorer' ? 'text-amber-700 font-semibold border-b-2 border-amber-600' : 'hover:text-slate-900'
+            }`}
+          >
+            <Compass className="w-4 h-4 text-amber-600" />
+            <span className="flex items-center gap-1">
+              <span>3D Tour Diorama</span>
+              <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.2 rounded">3D</span>
+            </span>
+          </button>
+
           <button
             onClick={() => setActiveTab('faqs')}
             className={`whitespace-nowrap shrink-0 transition-colors py-1 cursor-pointer flex items-center gap-1.5 ${

@@ -22,6 +22,7 @@ import { ReviewModal } from './components/ReviewModal.tsx';
 import { AskEngineDrawer } from './components/AskEngineDrawer.tsx';
 import { AIInsightsDashboard } from './components/AIInsightsDashboard.tsx';
 import { ReviewsExplorer } from './components/ReviewsExplorer.tsx';
+import { ThreeTravelDiorama } from './components/ThreeTravelDiorama.tsx';
 
 import travelEssentialsImg from './assets/images/travel_essentials_1792430296445.jpg';
 import loungeImg from './assets/images/travel_lounge_insights_1792430296921.jpg';
@@ -41,7 +42,7 @@ export default function App() {
 
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [activeTab, setActiveTab] = useState<'faqs' | 'ask' | 'reviews' | 'insights'>('faqs');
+  const [activeTab, setActiveTab] = useState<'faqs' | 'ask' | 'reviews' | 'insights' | '3d-explorer'>('faqs');
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [highlightedFaqId, setHighlightedFaqId] = useState<string | null>(null);
 
@@ -213,6 +214,7 @@ export default function App() {
           setActiveTab('faqs');
         }}
         onAskClick={() => setIsAskModalOpen(true)}
+        onOpen3DExplorer={() => setActiveTab('3d-explorer')}
       />
 
 
@@ -224,19 +226,32 @@ export default function App() {
           <div>
             <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
               {activeTab === 'faqs' && 'Official Albania Tour Knowledge Base'}
+              {activeTab === '3d-explorer' && 'Interactive 3D Albania Tour Diorama'}
               {activeTab === 'ask' && 'Ask the AI Travel Insights Engine'}
               {activeTab === 'reviews' && 'Traveler Community Feedback & Reviews'}
               {activeTab === 'insights' && 'AI Query Insights & Auto-Addition Pipeline'}
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
               {activeTab === 'faqs' && '10 Core questions verified by tour operators, plus dynamic community-driven updates.'}
+              {activeTab === '3d-explorer' && 'Real-time WebGL 3D showcase: inspect the private 4x4 expedition rig, astrolabe compass, citadel fortress, and coastal waypoints.'}
               {activeTab === 'ask' && 'Inquire about any travel topic; high-utility questions are automatically added to the FAQ database.'}
               {activeTab === 'reviews' && 'Unfiltered ratings and field notes from verified travelers across Albania.'}
               {activeTab === 'insights' && 'Monitoring traveler search patterns and auto-generating emerging answers.'}
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={() => setActiveTab('3d-explorer')}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 ${
+                activeTab === '3d-explorer'
+                  ? 'bg-gradient-to-r from-amber-600 to-amber-700 text-white shadow-sm ring-1 ring-amber-500'
+                  : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+              }`}
+            >
+              <Compass className="w-3.5 h-3.5 text-amber-500" />
+              <span>3D Tour Diorama</span>
+            </button>
             <button
               onClick={() => setActiveTab('faqs')}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
@@ -271,9 +286,123 @@ export default function App() {
           </div>
         </div>
 
+        {/* TAB 0: 3D TOUR DIORAMA & INTERACTIVE WEBGL OBJECTS */}
+        {activeTab === '3d-explorer' && (
+          <div className="space-y-8 animate-fade-in">
+            {/* The 3D WebGL Canvas Component */}
+            <ThreeTravelDiorama
+              onSelectCategory={(cat) => {
+                setSelectedCategory(cat);
+                setActiveTab('faqs');
+              }}
+              onFilterSearch={(keyword) => {
+                setSearchQuery(keyword);
+                setActiveTab('faqs');
+              }}
+            />
+
+            {/* 3D Features & Procedural Object Showcase Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:border-amber-400 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-3">
+                  <Car className="w-5 h-5 text-amber-600" />
+                </div>
+                <h4 className="text-base font-bold text-slate-900 mb-1">
+                  Private 4x4 Tour Rig & Driver
+                </h4>
+                <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                  Procedural expedition vehicle with roof luggage rack, all-terrain tires, and suspension geometry representing our dedicated private driver service across Albania.
+                </p>
+                <button
+                  onClick={() => {
+                    setSelectedCategory('transit-transport');
+                    setActiveTab('faqs');
+                  }}
+                  className="text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1 cursor-pointer"
+                >
+                  <span>Read Driver & Transport FAQs</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:border-amber-400 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-3">
+                  <Compass className="w-5 h-5 text-amber-600" />
+                </div>
+                <h4 className="text-base font-bold text-slate-900 mb-1">
+                  Astrolabe & Magnetic Compass
+                </h4>
+                <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                  Precision procedural brass lathe casing with real-time magnetic needle wobble and degree dial face rendered with high-anisotropy procedural canvas texturing.
+                </p>
+                <button
+                  onClick={() => {
+                    setSelectedCategory('currency-budget');
+                    setActiveTab('faqs');
+                  }}
+                  className="text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1 cursor-pointer"
+                >
+                  <span>Read Currency & Budget FAQs</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs hover:border-amber-400 transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-3">
+                  <MapPin className="w-5 h-5 text-amber-600" />
+                </div>
+                <h4 className="text-base font-bold text-slate-900 mb-1">
+                  Citadel & Riviera Waypoints
+                </h4>
+                <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                  Interactive glowing waypoint beacons across Ksamil beaches, Berat fortress, Tirana financial hub, and Accursed Alps. Click any 3D pin to view travel notes.
+                </p>
+                <button
+                  onClick={() => {
+                    setSelectedCategory('all');
+                    setActiveTab('faqs');
+                  }}
+                  className="text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1 cursor-pointer"
+                >
+                  <span>Explore All Verified FAQs</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* TAB 1: FAQ KNOWLEDGE BASE */}
         {activeTab === 'faqs' && (
           <div className="space-y-8">
+
+            {/* Interactive 3D Callout Card Banner */}
+            <div className="bg-slate-950 text-white rounded-2xl p-5 sm:p-6 border border-slate-800 shadow-md flex flex-col sm:flex-row items-center justify-between gap-5 overflow-hidden relative">
+              <div className="relative z-10 max-w-xl">
+                <div className="flex items-center gap-2 text-xs font-bold text-amber-400 mb-1.5">
+                  <Compass className="w-4 h-4 text-amber-400" />
+                  <span>Interactive 3D Experience</span>
+                  <span className="bg-amber-500/20 text-amber-300 text-[10px] px-2 py-0.5 rounded-full border border-amber-400/30">
+                    WebGL Real-Time
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-extrabold text-white tracking-tight">
+                  Explore Albania in 3D: Tour Rig, Compass & Scenic Diorama
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
+                  Rotate our custom 3D Albanian expedition scene, inspect the private 4x4 vehicle, trigger daytime or sunset lighting, and click interactive waypoint pins linked to our travel guides.
+                </p>
+              </div>
+
+              <button
+                onClick={() => setActiveTab('3d-explorer')}
+                className="relative z-10 shrink-0 px-5 py-3 bg-gradient-to-r from-amber-500 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap"
+              >
+                <Compass className="w-4 h-4 text-amber-200" />
+                <span>Launch 3D Tour Diorama</span>
+                <ChevronRight className="w-4 h-4 text-white" />
+              </button>
+            </div>
             
             {/* Category Filter Bar */}
             <CategoryFilter
