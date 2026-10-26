@@ -307,24 +307,32 @@ export const FAQCard: React.FC<FAQCardProps> = ({
           </button>
         </div>
 
-        {/* Official Tour Answer Highlight Box */}
-        {faq.officialDirectAnswer ? (
-          <div className="mt-3 p-3.5 rounded-xl bg-amber-50/90 border border-amber-200/90 text-amber-950">
-            <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-800 mb-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-600 inline-block" />
-              <span>Voyage Tour Answer:</span>
+        {/* Dual Answer Highlight Box (General + Tour Operator Answers) */}
+        <div className="mt-3.5 space-y-2">
+          {faq.officialDirectAnswer && (
+            <div className="p-3.5 rounded-xl bg-amber-50/90 border border-amber-200/90 text-amber-950">
+              <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-800 mb-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-600 inline-block" />
+                <span>Voyage Tour Answer (Ebin):</span>
+              </div>
+              <div className="text-xs sm:text-sm font-semibold text-slate-900 leading-relaxed whitespace-pre-line">
+                {faq.officialDirectAnswer}
+              </div>
             </div>
-            <div className="text-sm font-semibold text-slate-900 leading-relaxed whitespace-pre-line">
-              {faq.officialDirectAnswer}
+          )}
+
+          {faq.summary && (
+            <div className="p-3.5 rounded-xl bg-sky-50/80 border border-sky-200/80 text-sky-950">
+              <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-sky-800 mb-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-sky-600 inline-block" />
+                <span>General Travel Advice (Nihan):</span>
+              </div>
+              <div className="text-xs sm:text-sm font-medium text-slate-800 leading-relaxed">
+                {faq.summary}
+              </div>
             </div>
-          </div>
-        ) : (
-          !isExpanded && (
-            <p className="text-slate-600 text-sm mt-2 line-clamp-2 leading-relaxed">
-              {faq.summary}
-            </p>
-          )
-        )}
+          )}
+        </div>
       </div>
 
       {/* Expanded Content Area */}

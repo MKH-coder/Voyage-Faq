@@ -739,8 +739,17 @@ export default function App() {
                             {item.question.replace(/^\d+\.\s*/, '')}
                           </div>
                         </div>
-                        <div className="text-[11px] text-slate-600 line-clamp-2 mt-2 pt-1.5 border-t border-slate-100 font-medium">
-                          {item.officialDirectAnswer}
+                        <div className="text-[11px] mt-2 pt-1.5 border-t border-slate-100 font-medium space-y-1">
+                          <div className="text-amber-900 font-bold flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-600 shrink-0" />
+                            <span className="truncate">Tour: {item.officialDirectAnswer}</span>
+                          </div>
+                          {item.summary && (
+                            <div className="text-sky-800 font-normal flex items-center gap-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-sky-600 shrink-0" />
+                              <span className="truncate">Gen: {item.summary}</span>
+                            </div>
+                          )}
                         </div>
                       </button>
                     ))}
