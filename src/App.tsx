@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, useScroll, useSpring } from 'motion/react';
 import { 
   Sparkles, 
   HelpCircle, 
@@ -26,6 +27,13 @@ import travelEssentialsImg from './assets/images/travel_essentials_1792430296445
 import loungeImg from './assets/images/travel_lounge_insights_1792430296921.jpg';
 
 export default function App() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   const [faqs, setFaqs] = useState<FAQItem[]>([]);
   const [reviews, setReviews] = useState<FAQReview[]>([]);
   const [queries, setQueries] = useState<UserQueryLog[]>([]);
@@ -191,6 +199,11 @@ export default function App() {
         onOpenAskModal={() => setIsAskModalOpen(true)}
       />
 
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-amber-600 origin-left z-50"
+        style={{ scaleX }}
+      />
+
       {/* Main Hero Header */}
       <Hero
         searchQuery={searchQuery}
@@ -201,6 +214,7 @@ export default function App() {
         }}
         onAskClick={() => setIsAskModalOpen(true)}
       />
+
 
       {/* Primary Content Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
